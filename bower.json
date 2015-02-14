@@ -1,11 +1,11 @@
 {
-  "name": "jsCalc",
+  "name": "tosser",
   "version": "1.0.0",
   "authors": [
     "Scott Hyndman <shyndman@google.com>"
   ],
   "description": "Evaluate CSS calc expressions from JavaScript",
-  "main": "jsCalc.js",
+  "main": "tosser.js",
   "moduleType": [
     "globals"
   ],

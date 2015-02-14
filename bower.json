@@ -1,0 +1,25 @@
+{
+  "name": "jsCalc",
+  "version": "1.0.0",
+  "authors": [
+    "Scott Hyndman <shyndman@google.com>"
+  ],
+  "description": "Evaluate CSS calc expressions from JavaScript",
+  "main": "jsCalc.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "css",
+    "calc",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

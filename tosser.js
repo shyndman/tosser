@@ -28,7 +28,7 @@
     return Object.keys(styles).reduce(function(acc, name) {
       var val = styles[name];
       acc[name] = isCalcPattern.test(val) ?
-          toss.evaluateCalc(styles[name], {
+          tosser.evaluateCalc(styles[name], {
             containerUnits: units,
             vertical: !!verticalStyles[name]}) :
           val;
@@ -77,11 +77,12 @@
     el.id = 'text-resize-control';
     el.position = 'absolute';
     el.style.visibility = 'hidden';
+    el.style.height = '100%';
     el.innerHTML = measurementHtml;
     container.insertBefore(el, container.firstChild);
 
     var units = unknownUnits.reduce(function(acc, unit) {
-      acc[unit] = container.querySelector('.tosser--' + unit).clientWidth;
+      acc[unit] = container.querySelector('.tosser--' + unit).clientWidth / 100;
       return acc;
     }, {});
 
@@ -99,7 +100,7 @@
    */
   function buildMeasurementHtml() {
     var measurers = unknownUnits.map(function(unit) {
-      return '<div class="tosser--' + unit + '" style="width:1' + unit + '"></div>';
+      return '<div class="tosser--' + unit + '" style="width:100' + unit + '"></div>';
     });
     measurers.push('<div class="tosser--percent" style="width:100%;height:100%"></div>');
     return measurers.join('');

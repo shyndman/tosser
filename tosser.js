@@ -10,16 +10,40 @@
         'in': 96,
         'pt': 4 / 3
       },
+      verticalStyles = {
+        'top': true,
+        'height': true
+      },
+      isCalcPattern = /^calc\(/,
       measurementHtml = buildMeasurementHtml(),
       replacementPattern = buildReplacementPattern();
 
   /**
+   *
+   */
+  tosser.evaluateStyles = function(styles, options) {
+    var units = options.containerUnits ||
+                tosser.resolveContainerUnits(options.container);
+
+    return Object.keys(styles).reduce(function(acc, name) {
+      var val = styles[name];
+      acc[name] = isCalcPattern.test(val) ?
+          toss.evaluateCalc(styles[name], {
+            containerUnits: units,
+            vertical: !!verticalStyles[name]}) :
+          val;
+      return acc;
+    }, {});
+  };
+
+  /**
+   * Evaluates a calc expression in the context of a container.
    * options:
    *     container: Element
    *     containerUnits: Object<string, number>
    *     vertical: boolean (default: false)
    */
-  tosser.evaluate = function(expression, options) {
+  tosser.evaluateCalc = function(expression, options) {
     var units = options.containerUnits ||
                 tosser.resolveContainerUnits(options.container);
 
@@ -41,7 +65,12 @@
   };
 
   /**
+   * Resolves and returns units that are relative to the container, or can only
+   * be determined at a point in time.
    *
+   * Useful when evaluating multiple calcs against a single container, and
+   * can be supplied to `evaluateCalc` as options.containerUnits to avoid
+   * unnecessary calculation.
    */
   tosser.resolveContainerUnits = function(container) {
     var el = document.createElement('div');

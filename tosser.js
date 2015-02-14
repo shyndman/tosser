@@ -19,7 +19,10 @@
       replacementPattern = buildReplacementPattern();
 
   /**
-   *
+   * options:
+   *     container: Element
+   *     containerUnits: Object<string, number>
+   *     mutate: boolean (default false)
    */
   tosser.evaluateStyles = function(styles, options) {
     var units = options.containerUnits ||
@@ -30,10 +33,10 @@
       acc[name] = isCalcPattern.test(val) ?
           tosser.evaluateCalc(styles[name], {
             containerUnits: units,
-            vertical: !!verticalStyles[name]}) :
-          val;
+            vertical: !!verticalStyles[name]
+          }) : val;
       return acc;
-    }, {});
+    }, options.mutate ? styles : {});
   };
 
   /**
@@ -73,9 +76,9 @@
    * unnecessary calculation.
    */
   tosser.resolveContainerUnits = function(container) {
-    var el = document.createElement('div');
-    el.id = 'text-resize-control';
-    el.position = 'absolute';
+    var el = document.createElement('tosser-div');
+    el.style.position = 'absolute';
+    el.style.display = 'block';
     el.style.visibility = 'hidden';
     el.style.height = '100%';
     el.innerHTML = measurementHtml;

@@ -9,8 +9,8 @@ module.exports = function(grunt) {
     },
     banner: '/*! Tosser - v<%= meta.version %> - ' +
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '* http://github.com/shyndman/tosser/\n' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
+      ' * http://github.com/shyndman/tosser/\n' +
+      ' * Copyright (c) <%= grunt.template.today("yyyy") %> ' +
       'Scott Hyndman; Licensed MIT */\n',
     // Task configuration.
     concat: {

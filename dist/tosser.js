@@ -1,6 +1,6 @@
 /*! Tosser - v1.0.0 - 2015-02-14
-* http://github.com/shyndman/tosser/
-* Copyright (c) 2015 Scott Hyndman; Licensed MIT */
+ * http://github.com/shyndman/tosser/
+ * Copyright (c) 2015 Scott Hyndman; Licensed MIT */
 (function() {
   var tosser = window.tosser = {},
       unknownUnits = [

@@ -19,8 +19,8 @@ var px = tosser.evaluateCalc('calc((50% + 10px / 3) * 6)', {
   container: container
 });
 
-// Apply style
-document.querySelector('#some-element').style.width = px;
+// Apply style (must be a child of the container)
+document.querySelector('#some-child-of-container').style.width = px;
 ```
 
 ### Style object
@@ -35,10 +35,10 @@ var evaledStyle = tosser.evaluateCalc({
 });
 
 // Apply style
-$('#some-element').css(evaledStyle);
+$('#some-child-of-container').css(evaledStyle);
 ```
 
-### Multiple style object, same container
+### Multiple style objects, same container
 ```javascript
 var container = document.body;
 var styles = [{

@@ -1,6 +1,6 @@
 {
   "name": "tosser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Scott Hyndman <shyndman@google.com>",
   "description": "Evaluate CSS calc expressions in JavaScript",
   "main": "tosser.js",

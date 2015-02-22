@@ -1,4 +1,4 @@
-/*! Tosser - v1.0.0 - 2015-02-14
+/*! Tosser - v1.0.0 - 2015-02-22
  * http://github.com/shyndman/tosser/
  * Copyright (c) 2015 Scott Hyndman; Licensed MIT */
 (function() {
@@ -102,7 +102,7 @@
     el.style.position = 'absolute';
     el.style.display = 'block';
     el.style.visibility = 'hidden';
-    el.style.height = '100%';
+    el.style.width = el.style.height = '100%';
     el.innerHTML = measurementHtml;
     container.insertBefore(el, container.firstChild);
 
